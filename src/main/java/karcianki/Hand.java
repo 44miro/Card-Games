@@ -1,10 +1,9 @@
 package karcianki;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Hand {
-    private List<Card> cards;
+    private ArrayList<Card> cards;
 
     public Hand(){
         cards = new ArrayList<Card>();
@@ -16,13 +15,13 @@ public class Hand {
         cards.add(c);
     }
 
-    public List<Card> getCards(){
+    public ArrayList<Card> getCards(){
         if (cards.isEmpty())
             return null;
         return cards;
     }
 
-    public void setCards(List<Card> cards)
+    public void setCards(ArrayList<Card> cards)
     {
         this.cards = cards;
     }
