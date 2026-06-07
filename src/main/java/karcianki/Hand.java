@@ -16,8 +16,6 @@ public class Hand {
     }
 
     public ArrayList<Card> getCards(){
-        if (cards.isEmpty())
-            return null;
         return cards;
     }
 

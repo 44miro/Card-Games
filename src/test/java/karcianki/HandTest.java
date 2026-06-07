@@ -5,12 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HandTest {
     @Test
-    public void handShouldReturnNullIfEmpty()
-    {
-        Hand hand = new Hand();
-        assertNull(hand.getCards());
-    }
-    @Test
     public void handShouldReturnListIfNotEmpty()
     {
         Hand hand = new Hand();

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Player {
     private Hand hand;
 
-    public  Player(){
+    public Player() {
         this.hand = new Hand();
     }
 
