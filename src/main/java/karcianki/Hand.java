@@ -4,22 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hand {
-    private List<Card> hand;
+    private List<Card> cards;
 
     public Hand(){
-        hand = new ArrayList<Card>();
+        cards = new ArrayList<Card>();
     }
 
 
-    public void pull(Card c)
+    public void addCards(Card c)
     {
-        hand.add(c);
+        cards.add(c);
     }
 
-    public List<Card> getHand(){
-        if (hand.isEmpty())
+    public List<Card> getCards(){
+        if (cards.isEmpty())
             return null;
-        return hand;
+        return cards;
     }
 
+    public void setCards(List<Card> cards)
+    {
+        this.cards = cards;
+    }
 }

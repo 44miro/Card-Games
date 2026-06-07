@@ -8,15 +8,14 @@ public class HandTest {
     public void handShouldReturnNullIfEmpty()
     {
         Hand hand = new Hand();
-        assertNull(hand.getHand());
+        assertNull(hand.getCards());
     }
     @Test
     public void handShouldReturnListIfNotEmpty()
     {
         Hand hand = new Hand();
         Deck deck = new Deck();
-        hand.pull(deck.drawCard());
-        assertNotNull(hand.getHand());
+        hand.addCards(deck.drawCard());
+        assertNotNull(hand.getCards());
     }
-
 }
