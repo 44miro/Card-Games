@@ -1,15 +1,25 @@
 package karcianki;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hand {
-    private List<Card> Hand;
+    private List<Card> hand;
 
     public Hand(){
-        Hand  = null;
+        hand = new ArrayList<Card>();
+    }
+
+
+    public void pull(Card c)
+    {
+        hand.add(c);
     }
 
     public List<Card> getHand(){
-        return Hand;
+        if (hand.isEmpty())
+            return null;
+        return hand;
     }
+
 }

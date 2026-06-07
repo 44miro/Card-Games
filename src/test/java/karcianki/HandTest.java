@@ -10,7 +10,13 @@ public class HandTest {
         Hand hand = new Hand();
         assertNull(hand.getHand());
     }
-
-
+    @Test
+    public void handShouldReturnListIfNotEmpty()
+    {
+        Hand hand = new Hand();
+        Deck deck = new Deck();
+        hand.pull(deck.drawCard());
+        assertNotNull(hand.getHand());
+    }
 
 }
