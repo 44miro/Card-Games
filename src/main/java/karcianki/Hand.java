@@ -29,4 +29,7 @@ public class Hand {
             cards.get(i).displayCard();
         }
     }
+    public void handReset(){
+        cards = new ArrayList<Card>();
+    }
 }

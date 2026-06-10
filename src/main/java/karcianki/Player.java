@@ -42,16 +42,16 @@ public class Player {
     public void turn(Scanner scanner, Deck deck) {
         String command;
         while(true){
-            hand.showHand();
+
             System.out.println("Hit or Stand (H/S) Current Score" + countScore());
             command = scanner.next();
             if(command.equalsIgnoreCase("H"))
                 hit(deck);
             else
                 break;
-
             if (countScore()>21)
                 break;
+            hand.showHand();
         }
     }
 }

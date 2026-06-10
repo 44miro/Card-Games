@@ -3,33 +3,44 @@ package karcianki;
 import java.util.Scanner;
 
 public class Blackjack {
+    private Deck deck;
+    private Player player;
+    private Dealer dealer;
+    private Scanner scanner;
 
-    public static void main(String[] args) {
-        Deck deck;
-        Player player = new Player();
-        Dealer dealer = new Dealer();
-        Scanner scanner = new Scanner(System.in);
-        String command;
-        while (true)
-        {
+
+    public Blackjack() {
+        this.player = new Player();
+        this.dealer = new Dealer();
+        this.scanner = new Scanner(System.in);
+    }
+
+    public void game() {
+        while (true) {
             deck = new Deck();
-            deck.shuffle();
-            dealer.hit(deck);
-            System.out.println("Dealer Hand (Second Card Hidden)");
-            dealer.getHand().showHand();
-            dealer.hit(deck);
-            player.hit(deck);
-            player.hit(deck);
-            System.out.println("Your Hand");
+            gameStart(deck, dealer, player);
             player.turn(scanner, deck);
             dealer.playTurn(deck);
-
-
-
+            player.getHand().handReset();
+            dealer.getHand().handReset();
+            //Tutaj nalezy dodac weryfikacje wyniku
+            System.out.println("Press Q to Quit game");
+            if(scanner.next().equalsIgnoreCase("q"))
+                break;
         }
     }
 
-
+    private void gameStart(Deck deck, Dealer dealer, Player player) {
+        deck.shuffle();
+        dealer.hit(deck);
+        System.out.println("Dealer Hand (Second Card Hidden)");
+        dealer.getHand().showHand();
+        dealer.hit(deck);
+        player.hit(deck);
+        player.hit(deck);
+        System.out.println("Your Hand");
+        player.getHand().showHand();
+    }
 
 
 }
