@@ -23,4 +23,10 @@ public class Hand {
     {
         this.cards = cards;
     }
+
+    public void showHand(){
+        for (int i = 0 ; i < cards.size();i++){
+            cards.get(i).displayCard();
+        }
+    }
 }

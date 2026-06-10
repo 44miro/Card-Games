@@ -17,6 +17,11 @@ public class Card implements Comparable<Card> {
         return rank;
     }
 
+    public void displayCard()
+    {
+        System.out.println(getRank() + " " +getSuit());
+    }
+
     @Override
     public int compareTo(Card other) {
         return Integer.compare(this.rank.ordinal(), other.rank.ordinal());
