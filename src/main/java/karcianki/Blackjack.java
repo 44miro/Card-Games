@@ -3,10 +3,9 @@ package karcianki;
 import java.util.Scanner;
 
 public class Blackjack {
-    private Deck deck;
-    private Player player;
-    private Dealer dealer;
-    private Scanner scanner;
+    private final Player player;
+    private final Dealer dealer;
+    private final Scanner scanner;
 
 
     public Blackjack() {
@@ -16,8 +15,8 @@ public class Blackjack {
     }
 
     public void game() {
-        while (true) {
-            deck = new Deck();
+        do {
+            Deck deck = new Deck();
             gameStart(deck, dealer, player);
             player.turn(scanner, deck);
             dealer.playTurn(deck);
@@ -25,9 +24,7 @@ public class Blackjack {
             dealer.getHand().handReset();
             //Tutaj nalezy dodac weryfikacje wyniku
             System.out.println("Press Q to Quit game");
-            if(scanner.next().equalsIgnoreCase("q"))
-                break;
-        }
+        } while (!scanner.next().equalsIgnoreCase("q"));
     }
 
     private void gameStart(Deck deck, Dealer dealer, Player player) {

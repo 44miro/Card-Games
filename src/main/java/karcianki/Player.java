@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
-    private Hand hand;
+    private final Hand hand;
 
     public Player() {
         this.hand = new Hand();
@@ -22,8 +22,8 @@ public class Player {
         ArrayList<Card> cards = hand.getCards();
         int score = 0;
         cards.sort(Card::compareTo);
-        for (int i = 0; i < cards.size(); i++)
-            switch (cards.get(i).getRank()) {
+        for (Card card : cards)
+            switch (card.getRank()) {
                 case TWO -> score += 2;
                 case THREE -> score += 3;
                 case FOUR -> score += 4;
@@ -33,7 +33,7 @@ public class Player {
                 case EIGHT -> score += 8;
                 case NINE -> score += 9;
                 case ACE -> score += (score + 11 > 21) ? 1 : 11;
-                case TEN, JACK ,QUEEN ,KING ->score+=10;
+                case TEN, JACK, QUEEN, KING -> score += 10;
             }
 
         return score;

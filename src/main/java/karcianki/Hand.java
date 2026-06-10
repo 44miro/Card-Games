@@ -6,7 +6,7 @@ public class Hand {
     private ArrayList<Card> cards;
 
     public Hand(){
-        cards = new ArrayList<Card>();
+        cards = new ArrayList<>();
     }
 
 
@@ -25,11 +25,11 @@ public class Hand {
     }
 
     public void showHand(){
-        for (int i = 0 ; i < cards.size();i++){
-            cards.get(i).displayCard();
+        for (Card card : cards) {
+            card.displayCard();
         }
     }
     public void handReset(){
-        cards = new ArrayList<Card>();
+        cards = new ArrayList<>();
     }
 }
