@@ -8,10 +8,14 @@ public class Blackjack {
     private final Scanner scanner;
 
 
+    public Blackjack(Player player, Dealer dealer, Scanner scanner) {
+        this.player = player;
+        this.dealer = dealer;
+        this.scanner = scanner;
+    }
+
     public Blackjack() {
-        this.player = new Player();
-        this.dealer = new Dealer();
-        this.scanner = new Scanner(System.in);
+        this(new Player(), new Dealer(), new Scanner(System.in));
     }
 
     public void game() {
