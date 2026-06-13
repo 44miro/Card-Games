@@ -26,8 +26,8 @@ public class DealerTest {
     void dealer_does_not_draw_if_already_at_17() {
         // ustaw ręcznie rękę z wynikiem 17
         dealer.getHand().setCards(new java.util.ArrayList<>(java.util.List.of(
-                new Card(Suit.HEARTS, Rank.TEN),
-                new Card(Suit.HEARTS, Rank.SEVEN)
+                new Card(Rank.TEN,Suit.HEARTS),
+                new Card(Rank.SEVEN, Suit.HEARTS)
         )));
         int handSizeBefore = dealer.getHand().getCards().size();
         dealer.playTurn(deck);
@@ -37,8 +37,8 @@ public class DealerTest {
     @Test
     void dealer_draws_if_score_below_17() {
         dealer.getHand().setCards(new java.util.ArrayList<>(java.util.List.of(
-                new Card(Suit.HEARTS, Rank.TWO),
-                new Card(Suit.HEARTS, Rank.THREE)
+                new Card(Rank.TWO, Suit.HEARTS),
+                new Card(Rank.THREE, Suit.HEARTS)
         )));
         dealer.playTurn(deck);
         assertTrue(dealer.countScore() >= 17);

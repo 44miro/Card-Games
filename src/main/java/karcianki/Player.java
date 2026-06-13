@@ -10,19 +10,20 @@ public class Player {
         this.hand = new Hand();
     }
 
-    public void hit(Deck deck){
-        hand.addCards(deck.drawCard());
-    }
-
     public Hand getHand() {
         return hand;
+    }
+
+    public void hit(Deck deck){
+        hand.addCard(deck.drawCard());
     }
 
     public int countScore() {
         ArrayList<Card> cards = hand.getCards();
         int score = 0;
         cards.sort(Card::compareTo);
-        for (Card card : cards)
+
+        for (Card card : cards) {
             switch (card.getRank()) {
                 case TWO -> score += 2;
                 case THREE -> score += 3;
@@ -32,25 +33,26 @@ public class Player {
                 case SEVEN -> score += 7;
                 case EIGHT -> score += 8;
                 case NINE -> score += 9;
-                case ACE -> score += (score + 11 > 21) ? 1 : 11;
                 case TEN, JACK, QUEEN, KING -> score += 10;
+                case ACE -> score += (score + 11 > 21) ? 1 : 11;
             }
-
+        }
         return score;
     }
 
     public void turn(Scanner scanner, Deck deck) {
         String command;
-        while(true){
-
-            System.out.println("Hit or Stand (H/S) Current Score" + countScore());
+        while (true) {
+            System.out.println("Hit or Stand (H/S) Current Score: " + countScore());
             command = scanner.next();
-            if(command.equalsIgnoreCase("H"))
+            if (command.equalsIgnoreCase("H")) {
                 hit(deck);
-            else
+            } else {
                 break;
-            if (countScore()>21)
+            }
+            if (countScore() > 21) {
                 break;
+            }
             hand.showHand();
         }
     }

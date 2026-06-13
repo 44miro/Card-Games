@@ -9,7 +9,7 @@ public class HandTest {
     {
         Hand hand = new Hand();
         Deck deck = new Deck();
-        hand.addCards(deck.drawCard());
+        hand.addCard(deck.drawCard());
         assertNotNull(hand.getCards());
     }
 }

@@ -24,7 +24,7 @@ public class PlayerTest {
     }
 
     private Card card(Rank rank) {
-        return new Card(Suit.HEARTS, rank);
+        return new Card(rank, Suit.HEARTS);
     }
 
     // --- testy ---
