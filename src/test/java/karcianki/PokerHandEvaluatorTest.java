@@ -10,11 +10,12 @@ public class PokerHandEvaluatorTest {
     @Test
     public void shouldDetectPair() {
         List<Card> hand = Arrays.asList(
-                new Card(Rank.TWO, Suit.HEARTS),
-                new Card(Rank.TWO, Suit.SPADES),
-                new Card(Rank.FIVE, Suit.CLUBS),
-                new Card(Rank.NINE, Suit.DIAMONDS),
-                new Card(Rank.KING, Suit.HEARTS)
+                //poprawka kolejnosci do konstruktora z main
+                new Card(Suit.HEARTS, Rank.TWO),
+                new Card(Suit.SPADES, Rank.TWO),
+                new Card(Suit.CLUBS,Rank.FIVE),
+                new Card(Suit.DIAMONDS,Rank.NINE),
+                new Card(Suit.HEARTS, Rank.KING)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasPair(hand));
@@ -23,11 +24,12 @@ public class PokerHandEvaluatorTest {
     @Test
     public void shouldDetectTwoPairs() {
         List<Card> hand = Arrays.asList(
-                new Card(Rank.TWO, Suit.HEARTS),
-                new Card(Rank.TWO, Suit.SPADES),
-                new Card(Rank.FIVE, Suit.CLUBS),
-                new Card(Rank.FIVE, Suit.DIAMONDS),
-                new Card(Rank.KING, Suit.HEARTS)
+                //poprawka kolejnosci do konstruktora z main
+                new Card(Suit.HEARTS, Rank.TWO),
+                new Card(Suit.SPADES, Rank.TWO),
+                new Card(Suit.CLUBS,Rank.FIVE),
+                new Card(Suit.DIAMONDS,Rank.FIVE),
+                new Card(Suit.HEARTS, Rank.KING)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasTwoPairs(hand));
@@ -36,11 +38,12 @@ public class PokerHandEvaluatorTest {
     @Test
     public void shouldDetectThreeOfAKind() {
         List<Card> hand = Arrays.asList(
-                new Card(Rank.SEVEN, Suit.HEARTS),
-                new Card(Rank.SEVEN, Suit.SPADES),
-                new Card(Rank.SEVEN, Suit.CLUBS),
-                new Card(Rank.NINE, Suit.DIAMONDS),
-                new Card(Rank.KING, Suit.HEARTS)
+                //poprawka kolejnosci do konstruktora z main
+                new Card(Suit.HEARTS, Rank.SEVEN),
+                new Card(Suit.SPADES, Rank.SEVEN),
+                new Card(Suit.CLUBS,Rank.SEVEN),
+                new Card(Suit.DIAMONDS, Rank.NINE),
+                new Card(Suit.HEARTS, Rank.KING)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasThreeOfAKind(hand));
