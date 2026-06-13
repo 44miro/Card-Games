@@ -26,7 +26,7 @@ public class Hand {
 
     public void showHand(){
         for (Card card : cards) {
-            card.displayCard();
+            System.out.println(card);
         }
     }
     public void handReset(){

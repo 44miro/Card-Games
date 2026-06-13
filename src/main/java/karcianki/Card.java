@@ -16,4 +16,8 @@ public class Card {
     public Suit getSuit() {
         return suit;
     }
+
+    public int compareTo(Card other){
+        return Integer.compare(this.rank.ordinal(), other.rank.ordinal());
+    }
 }

@@ -7,13 +7,12 @@ public class Blackjack {
     private final Dealer dealer;
     private final Scanner scanner;
 
-    private final BlackjackReferee referee;
+    private final BlackjackReferee referee = new BlackjackReferee();
 
     public Blackjack(Player player, Dealer dealer, Scanner scanner) {
         this.player = player;
         this.dealer = dealer;
         this.scanner = scanner;
-        this.referee = new BlackjackReferee();
     }
 
     public Blackjack() {
