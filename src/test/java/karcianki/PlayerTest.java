@@ -52,4 +52,42 @@ public class PlayerTest {
         setHand(card(Rank.TWO), card(Rank.SEVEN), card(Rank.ACE));
         assertEquals(20, player.countScore());
     }
+    //testy zetonow
+    @Test
+    void new_player_should_start_with_zero_chips() {
+        assertEquals(0, player.getChips());
+    }
+
+    @Test
+    void player_can_receive_chips() {
+        player.addChips(1000);
+        assertEquals(1000, player.getChips());
+    }
+
+    @Test
+    void player_can_place_valid_bet_and_chips_are_deducted() {
+        player.addChips(1000);
+        int betAmount = player.placeBet(300);
+
+        assertEquals(300, betAmount, "Metoda powinna zwrocic wartosc zakladu");
+        assertEquals(700, player.getChips(), "Zetony powinny zostac odjete z konta gracza");
+    }
+
+    @Test
+    void player_cannot_bet_more_chips_than_owned() {
+        player.addChips(500);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            player.placeBet(600);
+        });
+
+        assertEquals(500, player.getChips());
+    }
+
+    @Test
+    void player_cannot_bet_negative_amount() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            player.placeBet(-50);
+        });
+    }
 }
