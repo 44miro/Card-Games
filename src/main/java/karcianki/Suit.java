@@ -1,5 +1,5 @@
 package karcianki;
 
 public enum Suit {
-    HEARTS, SPADES, CLUBS, DIAMONDS
+    HEARTS, DIAMONDS, CLUBS, SPADES
 }
