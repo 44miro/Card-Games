@@ -10,11 +10,10 @@ public class PokerHandEvaluatorTest {
     @Test
     public void shouldDetectPair() {
         List<Card> hand = Arrays.asList(
-                //poprawka kolejnosci do konstruktora z main
                 new Card(Suit.HEARTS, Rank.TWO),
                 new Card(Suit.SPADES, Rank.TWO),
-                new Card(Suit.CLUBS,Rank.FIVE),
-                new Card(Suit.DIAMONDS,Rank.NINE),
+                new Card(Suit.CLUBS, Rank.FIVE),
+                new Card(Suit.DIAMONDS, Rank.NINE),
                 new Card(Suit.HEARTS, Rank.KING)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
@@ -24,11 +23,10 @@ public class PokerHandEvaluatorTest {
     @Test
     public void shouldDetectTwoPairs() {
         List<Card> hand = Arrays.asList(
-                //poprawka kolejnosci do konstruktora z main
                 new Card(Suit.HEARTS, Rank.TWO),
                 new Card(Suit.SPADES, Rank.TWO),
-                new Card(Suit.CLUBS,Rank.FIVE),
-                new Card(Suit.DIAMONDS,Rank.FIVE),
+                new Card(Suit.CLUBS, Rank.FIVE),
+                new Card(Suit.DIAMONDS, Rank.FIVE),
                 new Card(Suit.HEARTS, Rank.KING)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
@@ -38,10 +36,9 @@ public class PokerHandEvaluatorTest {
     @Test
     public void shouldDetectThreeOfAKind() {
         List<Card> hand = Arrays.asList(
-                //poprawka kolejnosci do konstruktora z main
                 new Card(Suit.HEARTS, Rank.SEVEN),
                 new Card(Suit.SPADES, Rank.SEVEN),
-                new Card(Suit.CLUBS,Rank.SEVEN),
+                new Card(Suit.CLUBS, Rank.SEVEN),
                 new Card(Suit.DIAMONDS, Rank.NINE),
                 new Card(Suit.HEARTS, Rank.KING)
         );
@@ -51,13 +48,12 @@ public class PokerHandEvaluatorTest {
 
     @Test
     public void shouldDetectFlush() {
-        // Kolor: 5 kart w tym samym kolorze (nie po kolei)
         List<Card> hand = Arrays.asList(
-                new Card(Rank.TWO, Suit.HEARTS),
-                new Card(Rank.FIVE, Suit.HEARTS),
-                new Card(Rank.NINE, Suit.HEARTS),
-                new Card(Rank.JACK, Suit.HEARTS),
-                new Card(Rank.KING, Suit.HEARTS)
+                new Card(Suit.HEARTS, Rank.TWO),
+                new Card(Suit.HEARTS, Rank.FIVE),
+                new Card(Suit.HEARTS, Rank.NINE),
+                new Card(Suit.HEARTS, Rank.JACK),
+                new Card(Suit.HEARTS, Rank.KING)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasFlush(hand));
@@ -65,13 +61,12 @@ public class PokerHandEvaluatorTest {
 
     @Test
     public void shouldDetectStraight() {
-        // Strit: 5 kart po kolei (różne kolory).
         List<Card> hand = Arrays.asList(
-                new Card(Rank.FIVE, Suit.HEARTS),
-                new Card(Rank.SIX, Suit.SPADES),
-                new Card(Rank.SEVEN, Suit.CLUBS),
-                new Card(Rank.EIGHT, Suit.DIAMONDS),
-                new Card(Rank.NINE, Suit.HEARTS)
+                new Card(Suit.HEARTS, Rank.FIVE),
+                new Card(Suit.SPADES, Rank.SIX),
+                new Card(Suit.CLUBS, Rank.SEVEN),
+                new Card(Suit.DIAMONDS, Rank.EIGHT),
+                new Card(Suit.HEARTS, Rank.NINE)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasStraight(hand));
@@ -79,13 +74,12 @@ public class PokerHandEvaluatorTest {
 
     @Test
     public void shouldDetectFullHouse() {
-        // Full: Trójka i Para
         List<Card> hand = Arrays.asList(
-                new Card(Rank.TEN, Suit.HEARTS),
-                new Card(Rank.TEN, Suit.SPADES),
-                new Card(Rank.TEN, Suit.CLUBS),
-                new Card(Rank.KING, Suit.DIAMONDS),
-                new Card(Rank.KING, Suit.HEARTS)
+                new Card(Suit.HEARTS, Rank.TEN),
+                new Card(Suit.SPADES, Rank.TEN),
+                new Card(Suit.CLUBS, Rank.TEN),
+                new Card(Suit.DIAMONDS, Rank.KING),
+                new Card(Suit.HEARTS, Rank.KING)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasFullHouse(hand));
@@ -93,13 +87,12 @@ public class PokerHandEvaluatorTest {
 
     @Test
     public void shouldDetectFourOfAKind() {
-        // Kareta: 4 karty tej samej figury
         List<Card> hand = Arrays.asList(
-                new Card(Rank.ACE, Suit.HEARTS),
-                new Card(Rank.ACE, Suit.SPADES),
-                new Card(Rank.ACE, Suit.CLUBS),
-                new Card(Rank.ACE, Suit.DIAMONDS),
-                new Card(Rank.NINE, Suit.HEARTS)
+                new Card(Suit.HEARTS, Rank.ACE),
+                new Card(Suit.SPADES, Rank.ACE),
+                new Card(Suit.CLUBS, Rank.ACE),
+                new Card(Suit.DIAMONDS, Rank.ACE),
+                new Card(Suit.HEARTS, Rank.NINE)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasFourOfAKind(hand));
@@ -107,13 +100,12 @@ public class PokerHandEvaluatorTest {
 
     @Test
     public void shouldDetectStraightFlush() {
-        // Poker: 5 kart po kolei w tym samym kolorze
         List<Card> hand = Arrays.asList(
-                new Card(Rank.NINE, Suit.SPADES),
-                new Card(Rank.TEN, Suit.SPADES),
-                new Card(Rank.JACK, Suit.SPADES),
-                new Card(Rank.QUEEN, Suit.SPADES),
-                new Card(Rank.KING, Suit.SPADES)
+                new Card(Suit.SPADES, Rank.NINE),
+                new Card(Suit.SPADES, Rank.TEN),
+                new Card(Suit.SPADES, Rank.JACK),
+                new Card(Suit.SPADES, Rank.QUEEN),
+                new Card(Suit.SPADES, Rank.KING)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasStraightFlush(hand));
@@ -121,30 +113,121 @@ public class PokerHandEvaluatorTest {
 
     @Test
     public void shouldDetectRoyalFlush() {
-        // Poker Królewski: 10, J, Q, K, As w tym samym kolorze
         List<Card> hand = Arrays.asList(
-                new Card(Rank.TEN, Suit.DIAMONDS),
-                new Card(Rank.JACK, Suit.DIAMONDS),
-                new Card(Rank.QUEEN, Suit.DIAMONDS),
-                new Card(Rank.KING, Suit.DIAMONDS),
-                new Card(Rank.ACE, Suit.DIAMONDS)
+                new Card(Suit.DIAMONDS, Rank.TEN),
+                new Card(Suit.DIAMONDS, Rank.JACK),
+                new Card(Suit.DIAMONDS, Rank.QUEEN),
+                new Card(Suit.DIAMONDS, Rank.KING),
+                new Card(Suit.DIAMONDS, Rank.ACE)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
-
         assertTrue(evaluator.hasRoyalFlush(hand));
     }
 
     @Test
     public void shouldDetectLowAceStraight() {
-        // Specjalny przypadek Strita (As jako jedynka): As, 2, 3, 4, 5
         List<Card> hand = Arrays.asList(
-                new Card(Rank.ACE, Suit.HEARTS),
-                new Card(Rank.TWO, Suit.SPADES),
-                new Card(Rank.THREE, Suit.CLUBS),
-                new Card(Rank.FOUR, Suit.DIAMONDS),
-                new Card(Rank.FIVE, Suit.HEARTS)
+                new Card(Suit.HEARTS, Rank.ACE),
+                new Card(Suit.SPADES, Rank.TWO),
+                new Card(Suit.CLUBS, Rank.THREE),
+                new Card(Suit.DIAMONDS, Rank.FOUR),
+                new Card(Suit.HEARTS, Rank.FIVE)
         );
         PokerHandEvaluator evaluator = new PokerHandEvaluator();
         assertTrue(evaluator.hasStraight(hand));
+    }
+
+
+    @Test
+    public void shouldNotDetectFlushWhenColorsAreMixed() {
+        // 4 kiery i 1 pik - to NIE JEST kolor
+        List<Card> hand = Arrays.asList(
+                new Card(Suit.HEARTS, Rank.TWO),
+                new Card(Suit.SPADES, Rank.FIVE),
+                new Card(Suit.HEARTS, Rank.NINE),
+                new Card(Suit.HEARTS, Rank.JACK),
+                new Card(Suit.HEARTS, Rank.KING)
+        );
+        PokerHandEvaluator evaluator = new PokerHandEvaluator();
+        assertFalse(evaluator.hasFlush(hand));
+    }
+
+    @Test
+    public void shouldNotDetectStraightWhenCardsAreNotSequential() {
+        // 5, 6, 7, 8 i nagle Król - to NIE JEST strit
+        List<Card> hand = Arrays.asList(
+                new Card(Suit.HEARTS, Rank.FIVE),
+                new Card(Suit.SPADES, Rank.SIX),
+                new Card(Suit.CLUBS, Rank.SEVEN),
+                new Card(Suit.DIAMONDS, Rank.EIGHT),
+                new Card(Suit.HEARTS, Rank.KING)
+        );
+        PokerHandEvaluator evaluator = new PokerHandEvaluator();
+        assertFalse(evaluator.hasStraight(hand));
+    }
+
+    @Test
+    public void shouldNotDetectTwoPairsWhenOnlyOnePairIsPresent() {
+        // Tylko jedna para (Dziewiątki), program nie może tego uznać za Dwie Pary
+        List<Card> hand = Arrays.asList(
+                new Card(Suit.HEARTS, Rank.NINE),
+                new Card(Suit.SPADES, Rank.NINE),
+                new Card(Suit.CLUBS, Rank.TWO),
+                new Card(Suit.DIAMONDS, Rank.FOUR),
+                new Card(Suit.HEARTS, Rank.KING)
+        );
+        PokerHandEvaluator evaluator = new PokerHandEvaluator();
+        assertFalse(evaluator.hasTwoPairs(hand));
+    }
+
+    @Test
+    public void shouldNotDetectFullHouseWhenOnlyThreeOfAKindIsPresent() {
+        // Trójka (Dziesiątki) i dwie RÓŻNE karty (Czwórka, Król) - to nie jest Full
+        List<Card> hand = Arrays.asList(
+                new Card(Suit.HEARTS, Rank.TEN),
+                new Card(Suit.SPADES, Rank.TEN),
+                new Card(Suit.CLUBS, Rank.TEN),
+                new Card(Suit.DIAMONDS, Rank.FOUR),
+                new Card(Suit.HEARTS, Rank.KING)
+        );
+        PokerHandEvaluator evaluator = new PokerHandEvaluator();
+        assertFalse(evaluator.hasFullHouse(hand));
+    }
+
+    @Test
+    public void shouldNotDetectStraightWhenCardsWrapAround() {
+        // "Strit z zawinięciem" (np. Q, K, A, 2, 3) nie jest legalny w klasycznym pokerze
+        List<Card> hand = Arrays.asList(
+                new Card(Suit.HEARTS, Rank.QUEEN),
+                new Card(Suit.SPADES, Rank.KING),
+                new Card(Suit.CLUBS, Rank.ACE),
+                new Card(Suit.DIAMONDS, Rank.TWO),
+                new Card(Suit.HEARTS, Rank.THREE)
+        );
+        PokerHandEvaluator evaluator = new PokerHandEvaluator();
+        assertFalse(evaluator.hasStraight(hand));
+    }
+
+    @Test
+    public void shouldReturnFalseForAllWhenGarbageHand() {
+        // Zwykła, nic niewarta ręka (tzw. High Card / Wysoka Karta)
+        List<Card> hand = Arrays.asList(
+                new Card(Suit.HEARTS, Rank.TWO),
+                new Card(Suit.SPADES, Rank.FIVE),
+                new Card(Suit.CLUBS, Rank.NINE),
+                new Card(Suit.DIAMONDS, Rank.JACK),
+                new Card(Suit.HEARTS, Rank.KING)
+        );
+        PokerHandEvaluator evaluator = new PokerHandEvaluator();
+
+        assertFalse(evaluator.hasPair(hand));
+        assertFalse(evaluator.hasTwoPairs(hand));
+        assertFalse(evaluator.hasThreeOfAKind(hand));
+        assertFalse(evaluator.hasStraight(hand));
+        assertFalse(evaluator.hasFlush(hand));
+        assertFalse(evaluator.hasFullHouse(hand));
+        assertFalse(evaluator.hasFourOfAKind(hand));
+        assertFalse(evaluator.hasStraightFlush(hand));
+        assertFalse(evaluator.hasRoyalFlush(hand));
     }
 }
