@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 public class Player {
     private Hand hand;
+    private int chips;
 
     public Player() {
+        this.chips = 0;
         this.hand = new Hand();
     }
 
@@ -36,6 +38,30 @@ public class Player {
             }
 
         return score;
+    }
+
+    //logika zetonow
+    public int getChips() {
+        return chips;
+    }
+
+    public void addChips(int amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Nie mozna dodac ujemnej liczby zetonow");
+        }
+        this.chips += amount;
+    }
+
+    public int placeBet(int amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Zaklad musi byc wiekszy od zera");
+        }
+        if (amount > chips) {
+            throw new IllegalArgumentException("Niewystarczajaca liczba zetonow! Posiadasz: " + chips);
+        }
+
+        this.chips -= amount;
+        return amount;
     }
 
 }
