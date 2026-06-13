@@ -7,11 +7,13 @@ public class Blackjack {
     private final Dealer dealer;
     private final Scanner scanner;
 
+    private final BlackjackReferee referee;
 
     public Blackjack(Player player, Dealer dealer, Scanner scanner) {
         this.player = player;
         this.dealer = dealer;
         this.scanner = scanner;
+        this.referee = new BlackjackReferee();
     }
 
     public Blackjack() {
@@ -24,9 +26,16 @@ public class Blackjack {
             gameStart(deck, dealer, player);
             player.turn(scanner, deck);
             dealer.playTurn(deck);
+
+            int playerScore = player.countScore();
+            int dealerScore = dealer.countScore();
+
+            GameResult result = referee.determineWinner(playerScore, dealerScore);
+            System.out.println("\n[WYNIK] Gracz: " + playerScore + "| Krupier: " + dealerScore);
+            System.out.println("[WERDYKT] " + result);
+
             player.getHand().handReset();
             dealer.getHand().handReset();
-            //Tutaj nalezy dodac weryfikacje wyniku
             System.out.println("Press Q to Quit game");
         } while (!scanner.next().equalsIgnoreCase("q"));
     }
