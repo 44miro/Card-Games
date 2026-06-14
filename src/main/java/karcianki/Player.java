@@ -52,10 +52,10 @@ public class Player {
             } else {
                 break;
             }
+            hand.showHand();
             if (countScore() > 21) {
                 break;
             }
-            hand.showHand();
         }
     }
 
