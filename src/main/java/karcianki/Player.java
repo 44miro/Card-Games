@@ -58,7 +58,7 @@ public class Player {
             hand.showHand();
         }
     }
-}
+
     //logika zetonow
     public int getChips() {
         return chips;
