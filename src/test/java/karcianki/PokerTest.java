@@ -37,11 +37,11 @@ public class PokerTest {
     @Test
     public void shouldDetectPair() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.TWO),
-                new Card(Suit.SPADES, Rank.TWO),
-                new Card(Suit.CLUBS, Rank.FIVE),
-                new Card(Suit.DIAMONDS, Rank.NINE),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.TWO, Suit.HEARTS),
+                new Card(Rank.TWO, Suit.SPADES),
+                new Card(Rank.FIVE, Suit.CLUBS),
+                new Card(Rank.NINE, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasPair(hand));
@@ -50,11 +50,11 @@ public class PokerTest {
     @Test
     public void shouldDetectTwoPairs() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.TWO),
-                new Card(Suit.SPADES, Rank.TWO),
-                new Card(Suit.CLUBS, Rank.FIVE),
-                new Card(Suit.DIAMONDS, Rank.FIVE),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.TWO, Suit.HEARTS),
+                new Card(Rank.TWO, Suit.SPADES),
+                new Card(Rank.FIVE, Suit.CLUBS),
+                new Card(Rank.FIVE, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasTwoPairs(hand));
@@ -63,11 +63,11 @@ public class PokerTest {
     @Test
     public void shouldDetectThreeOfAKind() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.SEVEN),
-                new Card(Suit.SPADES, Rank.SEVEN),
-                new Card(Suit.CLUBS, Rank.SEVEN),
-                new Card(Suit.DIAMONDS, Rank.NINE),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.SEVEN, Suit.HEARTS),
+                new Card(Rank.SEVEN, Suit.SPADES),
+                new Card(Rank.SEVEN, Suit.CLUBS),
+                new Card(Rank.NINE, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasThreeOfAKind(hand));
@@ -76,11 +76,11 @@ public class PokerTest {
     @Test
     public void shouldDetectFlush() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.TWO),
-                new Card(Suit.HEARTS, Rank.FIVE),
-                new Card(Suit.HEARTS, Rank.NINE),
-                new Card(Suit.HEARTS, Rank.JACK),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.TWO, Suit.HEARTS),
+                new Card(Rank.FIVE, Suit.HEARTS),
+                new Card(Rank.NINE, Suit.HEARTS),
+                new Card(Rank.JACK, Suit.HEARTS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasFlush(hand));
@@ -89,11 +89,11 @@ public class PokerTest {
     @Test
     public void shouldDetectStraight() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.FIVE),
-                new Card(Suit.SPADES, Rank.SIX),
-                new Card(Suit.CLUBS, Rank.SEVEN),
-                new Card(Suit.DIAMONDS, Rank.EIGHT),
-                new Card(Suit.HEARTS, Rank.NINE)
+                new Card(Rank.FIVE, Suit.HEARTS),
+                new Card(Rank.SIX, Suit.SPADES),
+                new Card(Rank.SEVEN, Suit.CLUBS),
+                new Card(Rank.EIGHT, Suit.DIAMONDS),
+                new Card(Rank.NINE, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasStraight(hand));
@@ -102,11 +102,11 @@ public class PokerTest {
     @Test
     public void shouldDetectFullHouse() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.TEN),
-                new Card(Suit.SPADES, Rank.TEN),
-                new Card(Suit.CLUBS, Rank.TEN),
-                new Card(Suit.DIAMONDS, Rank.KING),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.TEN, Suit.HEARTS),
+                new Card(Rank.TEN, Suit.SPADES),
+                new Card(Rank.TEN, Suit.CLUBS),
+                new Card(Rank.KING, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasFullHouse(hand));
@@ -115,11 +115,11 @@ public class PokerTest {
     @Test
     public void shouldDetectFourOfAKind() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.ACE),
-                new Card(Suit.SPADES, Rank.ACE),
-                new Card(Suit.CLUBS, Rank.ACE),
-                new Card(Suit.DIAMONDS, Rank.ACE),
-                new Card(Suit.HEARTS, Rank.NINE)
+                new Card(Rank.ACE, Suit.HEARTS),
+                new Card(Rank.ACE, Suit.SPADES),
+                new Card(Rank.ACE, Suit.CLUBS),
+                new Card(Rank.ACE, Suit.DIAMONDS),
+                new Card(Rank.NINE, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasFourOfAKind(hand));
@@ -128,11 +128,11 @@ public class PokerTest {
     @Test
     public void shouldDetectStraightFlush() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.SPADES, Rank.NINE),
-                new Card(Suit.SPADES, Rank.TEN),
-                new Card(Suit.SPADES, Rank.JACK),
-                new Card(Suit.SPADES, Rank.QUEEN),
-                new Card(Suit.SPADES, Rank.KING)
+                new Card(Rank.NINE, Suit.SPADES),
+                new Card(Rank.TEN, Suit.SPADES),
+                new Card(Rank.JACK, Suit.SPADES),
+                new Card(Rank.QUEEN, Suit.SPADES),
+                new Card(Rank.KING, Suit.SPADES)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasStraightFlush(hand));
@@ -141,11 +141,11 @@ public class PokerTest {
     @Test
     public void shouldDetectRoyalFlush() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.DIAMONDS, Rank.TEN),
-                new Card(Suit.DIAMONDS, Rank.JACK),
-                new Card(Suit.DIAMONDS, Rank.QUEEN),
-                new Card(Suit.DIAMONDS, Rank.KING),
-                new Card(Suit.DIAMONDS, Rank.ACE)
+                new Card(Rank.TEN, Suit.DIAMONDS),
+                new Card(Rank.JACK, Suit.DIAMONDS),
+                new Card(Rank.QUEEN, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.DIAMONDS),
+                new Card(Rank.ACE, Suit.DIAMONDS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasRoyalFlush(hand));
@@ -154,11 +154,11 @@ public class PokerTest {
     @Test
     public void shouldDetectLowAceStraight() {
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.ACE),
-                new Card(Suit.SPADES, Rank.TWO),
-                new Card(Suit.CLUBS, Rank.THREE),
-                new Card(Suit.DIAMONDS, Rank.FOUR),
-                new Card(Suit.HEARTS, Rank.FIVE)
+                new Card(Rank.ACE, Suit.HEARTS),
+                new Card(Rank.TWO, Suit.SPADES),
+                new Card(Rank.THREE, Suit.CLUBS),
+                new Card(Rank.FOUR, Suit.DIAMONDS),
+                new Card(Rank.FIVE, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertTrue(poker.hasStraight(hand));
@@ -168,13 +168,12 @@ public class PokerTest {
 
     @Test
     public void shouldNotDetectFlushWhenColorsAreMixed() {
-        // 4 kiery i 1 pik - to NIE JEST kolor
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.TWO),
-                new Card(Suit.SPADES, Rank.FIVE),
-                new Card(Suit.HEARTS, Rank.NINE),
-                new Card(Suit.HEARTS, Rank.JACK),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.TWO, Suit.HEARTS),
+                new Card(Rank.FIVE, Suit.SPADES),
+                new Card(Rank.NINE, Suit.HEARTS),
+                new Card(Rank.JACK, Suit.HEARTS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertFalse(poker.hasFlush(hand));
@@ -182,13 +181,12 @@ public class PokerTest {
 
     @Test
     public void shouldNotDetectStraightWhenCardsAreNotSequential() {
-        // 5, 6, 7, 8 i nagle Król - to NIE JEST strit
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.FIVE),
-                new Card(Suit.SPADES, Rank.SIX),
-                new Card(Suit.CLUBS, Rank.SEVEN),
-                new Card(Suit.DIAMONDS, Rank.EIGHT),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.FIVE, Suit.HEARTS),
+                new Card(Rank.SIX, Suit.SPADES),
+                new Card(Rank.SEVEN, Suit.CLUBS),
+                new Card(Rank.EIGHT, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertFalse(poker.hasStraight(hand));
@@ -196,13 +194,12 @@ public class PokerTest {
 
     @Test
     public void shouldNotDetectTwoPairsWhenOnlyOnePairIsPresent() {
-        // Tylko jedna para (Dziewiątki)
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.NINE),
-                new Card(Suit.SPADES, Rank.NINE),
-                new Card(Suit.CLUBS, Rank.TWO),
-                new Card(Suit.DIAMONDS, Rank.FOUR),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.NINE, Suit.HEARTS),
+                new Card(Rank.NINE, Suit.SPADES),
+                new Card(Rank.TWO, Suit.CLUBS),
+                new Card(Rank.FOUR, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertFalse(poker.hasTwoPairs(hand));
@@ -210,13 +207,12 @@ public class PokerTest {
 
     @Test
     public void shouldNotDetectFullHouseWhenOnlyThreeOfAKindIsPresent() {
-        // Trójka (Dziesiątki) i dwie różne karty
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.TEN),
-                new Card(Suit.SPADES, Rank.TEN),
-                new Card(Suit.CLUBS, Rank.TEN),
-                new Card(Suit.DIAMONDS, Rank.FOUR),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.TEN, Suit.HEARTS),
+                new Card(Rank.TEN, Suit.SPADES),
+                new Card(Rank.TEN, Suit.CLUBS),
+                new Card(Rank.FOUR, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertFalse(poker.hasFullHouse(hand));
@@ -224,13 +220,12 @@ public class PokerTest {
 
     @Test
     public void shouldNotDetectStraightWhenCardsWrapAround() {
-        // Zawinięcie Q, K, A, 2, 3 nie jest stritem
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.QUEEN),
-                new Card(Suit.SPADES, Rank.KING),
-                new Card(Suit.CLUBS, Rank.ACE),
-                new Card(Suit.DIAMONDS, Rank.TWO),
-                new Card(Suit.HEARTS, Rank.THREE)
+                new Card(Rank.QUEEN, Suit.HEARTS),
+                new Card(Rank.KING, Suit.SPADES),
+                new Card(Rank.ACE, Suit.CLUBS),
+                new Card(Rank.TWO, Suit.DIAMONDS),
+                new Card(Rank.THREE, Suit.HEARTS)
         );
         Poker poker = new Poker();
         assertFalse(poker.hasStraight(hand));
@@ -238,13 +233,12 @@ public class PokerTest {
 
     @Test
     public void shouldReturnFalseForAllWhenGarbageHand() {
-        // Zwykła, nic niewarta ręka (High Card)
         List<Card> hand = Arrays.asList(
-                new Card(Suit.HEARTS, Rank.TWO),
-                new Card(Suit.SPADES, Rank.FIVE),
-                new Card(Suit.CLUBS, Rank.NINE),
-                new Card(Suit.DIAMONDS, Rank.JACK),
-                new Card(Suit.HEARTS, Rank.KING)
+                new Card(Rank.TWO, Suit.HEARTS),
+                new Card(Rank.FIVE, Suit.SPADES),
+                new Card(Rank.NINE, Suit.CLUBS),
+                new Card(Rank.JACK, Suit.DIAMONDS),
+                new Card(Rank.KING, Suit.HEARTS)
         );
         Poker poker = new Poker();
 
