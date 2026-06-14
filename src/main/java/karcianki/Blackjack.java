@@ -30,14 +30,15 @@ public class Blackjack {
 
         GameResult result = determineWinner(playerScore, dealerScore);
 
-        System.out.println("\n[WYNIK] Gracz: " + playerScore + " | Krupier: " + dealerScore);
+
         System.out.println("\n|YOUR HAND|");
         player.getHand().showHand();
         System.out.println("\n|DEALER HAND|");
         dealer.getHand().showHand();
+        System.out.println("\n[WYNIK] Gracz: " + playerScore + " | Krupier: " + dealerScore);
         System.out.println("\n[WERDYKT] " + result);
-        player.getHand().handReset();
-        dealer.getHand().handReset();
+        player.getHand().clear();
+        dealer.getHand().clear();
     }
 
     private void gameStart(Deck deck, Dealer dealer, Player player) {
@@ -46,7 +47,6 @@ public class Blackjack {
         System.out.println("Dealer Hand (Second Card Hidden)");
         dealer.getHand().showHand();
         dealer.hit(deck);
-
         player.hit(deck);
         player.hit(deck);
         System.out.println("Your Hand");

@@ -133,7 +133,8 @@ public class Poker {
         for (int i = 0; i < count; i++) {
             communityCards.addCard(deck.drawCard());
         }
-        communityCards.printCards("Karty wspólne: ");
+        System.out.println("Karty wspólne: ");
+        communityCards.showHand();
         bettingRound();
     }
 

@@ -29,24 +29,12 @@ public class Hand {
         cards.clear();
     }
 
-    public void printCards(String label) {
-        System.out.print(label);
-        for (Card c : cards) {
-            System.out.print("[" + c.getRank() + " of " + c.getSuit() + "] ");
-        }
-        System.out.println();
-    }
-
     public void showHand() {
         System.out.println("_________________");
         for (Card card : cards) {
             System.out.println(card);
         }
         System.out.println("_________________");
-    }
-
-    public void handReset() {
-        cards = new ArrayList<>();
     }
 
     public void setCards(ArrayList<Card> cards) {
