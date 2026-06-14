@@ -1,6 +1,7 @@
 package karcianki;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Player {
@@ -59,7 +60,6 @@ public class Player {
         }
     }
 
-    //logika zetonow
     public int getChips() {
         return chips;
     }
@@ -83,4 +83,41 @@ public class Player {
         return amount;
     }
 
+    private int seatNumber;
+
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public void printHand() {
+        System.out.println("Twoje karty to: ");
+        hand.showHand();
+    }
+
+    public HandRank getBestHandRank(List<Card> communityCards) {
+        List<Card> allCards = new ArrayList<>(hand.getCards());
+        allCards.addAll(communityCards);
+
+        HandRank best = HandRank.HIGH_CARD;
+
+        for (int i = 0; i < allCards.size() - 1; i++) {
+            for (int j = i + 1; j < allCards.size(); j++) {
+                List<Card> fiveCardCombo = new ArrayList<>();
+                for (int k = 0; k < allCards.size(); k++) {
+                    if (k != i && k != j) {
+                        fiveCardCombo.add(allCards.get(k));
+                    }
+                }
+                HandRank current = new Hand(fiveCardCombo).evaluateRank();
+                if (current.compareTo(best) > 0) {
+                    best = current;
+                }
+            }
+        }
+        return best;
+    }
 }
