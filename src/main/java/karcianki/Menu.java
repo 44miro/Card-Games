@@ -2,7 +2,7 @@ package karcianki;
 
 import java.util.Scanner;
 
-public class MenuController {
+public class Menu {
 
     public boolean isValidOption(String input) {
         if (input == null || input.trim().isEmpty()) {

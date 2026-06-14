@@ -1,6 +1,7 @@
 package karcianki;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
     private Hand hand;
@@ -38,6 +39,23 @@ public class Player {
             }
 
         return score;
+    }
+
+    public void turn(Scanner scanner, Deck deck) {
+        String command;
+        while (true) {
+            System.out.println("Hit or Stand (H/S) Current Score: " + countScore());
+            command = scanner.next();
+            if (command.equalsIgnoreCase("H")) {
+                hit(deck);
+            } else {
+                break;
+            }
+            if (countScore() > 21) {
+                break;
+            }
+            hand.showHand();
+        }
     }
 
     //logika zetonow

@@ -23,4 +23,14 @@ public class Hand {
     {
         this.cards = cards;
     }
+
+    public void handReset() {
+        this.cards = new ArrayList<>();
+    }
+
+    public void showHand() {
+        for (Card card : cards) {
+            System.out.println(card);
+        }
+    }
 }
