@@ -23,6 +23,13 @@ public class Poker {
         this.communityCards = new ArrayList<>();
         this.scanner = new Scanner(System.in);
     }
+    //2 konstruktor do pobrania scannera z menu
+    public Poker(Scanner scanner) {
+        this.pot = 0;
+        this.players = new ArrayList<>();
+        this.communityCards = new ArrayList<>();
+        this.scanner = scanner;
+    }
 
 
     public void startSession() {
