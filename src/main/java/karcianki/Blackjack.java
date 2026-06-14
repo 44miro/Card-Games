@@ -7,15 +7,10 @@ public class Blackjack {
     private final Dealer dealer;
     private final Scanner scanner;
 
-
     public Blackjack(Player player, Dealer dealer, Scanner scanner) {
         this.player = player;
         this.dealer = dealer;
         this.scanner = scanner;
-    }
-
-    public Blackjack() {
-        this(new Player(), new Dealer(), new Scanner(System.in));
     }
 
     public void game() {
@@ -24,11 +19,26 @@ public class Blackjack {
             gameStart(deck, dealer, player);
             player.turn(scanner, deck);
             dealer.playTurn(deck);
-            player.getHand().handReset();
-            dealer.getHand().handReset();
-            //Tutaj nalezy dodac weryfikacje wyniku
-            System.out.println("Press Q to Quit game");
+            this.endGame();
+            System.out.println("Type Q to Quit game or any other char to play again");
         } while (!scanner.next().equalsIgnoreCase("q"));
+    }
+
+    private void endGame() {
+        int playerScore = player.countScore();
+        int dealerScore = dealer.countScore();
+
+        GameResult result = determineWinner(playerScore, dealerScore);
+
+
+        System.out.println("\n|YOUR HAND|");
+        player.getHand().showHand();
+        System.out.println("\n|DEALER HAND|");
+        dealer.getHand().showHand();
+        System.out.println("\n[WYNIK] Gracz: " + playerScore + " | Krupier: " + dealerScore);
+        System.out.println("\n[WERDYKT] " + result);
+        player.getHand().clear();
+        dealer.getHand().clear();
     }
 
     private void gameStart(Deck deck, Dealer dealer, Player player) {
@@ -43,5 +53,18 @@ public class Blackjack {
         player.getHand().showHand();
     }
 
-
+    private GameResult determineWinner(int playerScore, int dealerScore) {
+        if (playerScore > 21) {
+            return GameResult.LOSE;
+        }
+        if (dealerScore > 21) {
+            return GameResult.WIN;
+        }
+        if (playerScore > dealerScore) {
+            return GameResult.WIN;
+        } else if (playerScore < dealerScore) {
+            return GameResult.LOSE;
+        }
+        return GameResult.DRAW;
+    }
 }
