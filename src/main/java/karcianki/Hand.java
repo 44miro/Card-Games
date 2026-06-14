@@ -18,9 +18,11 @@ public class Hand {
     }
 
     public void showHand() {
+        System.out.println("_________________");
         for (Card card : cards) {
             System.out.println(card);
         }
+        System.out.println("_________________");
     }
 
     public void handReset() {
