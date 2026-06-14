@@ -23,6 +23,13 @@ public class Poker {
         this.communityCards = new ArrayList<>();
         this.scanner = new Scanner(System.in);
     }
+    //2 konstruktor do pobrania scannera z menu
+    public Poker(Scanner scanner) {
+        this.pot = 0;
+        this.players = new ArrayList<>();
+        this.communityCards = new ArrayList<>();
+        this.scanner = scanner;
+    }
 
 
     public void startSession() {
@@ -110,7 +117,7 @@ public class Poker {
         System.out.println("\n--- PRE-FLOP ---");
         for (int i = 0; i < 2; i++) {
             for (Player player : activePlayers) {
-                player.getHand().addCards(deck.drawCard());
+                player.getHand().addCard(deck.drawCard());
             }
         }
         System.out.println("Gracze otrzymali po 2 karty do ręki.");
