@@ -13,30 +13,32 @@ public class Blackjack {
         this.scanner = scanner;
     }
 
-    public Blackjack() {
-        this(new Player(), new Dealer(), new Scanner(System.in));
-    }
-
     public void game() {
         do {
             Deck deck = new Deck();
             gameStart(deck, dealer, player);
             player.turn(scanner, deck);
             dealer.playTurn(deck);
-
-            int playerScore = player.countScore();
-            int dealerScore = dealer.countScore();
-
-            GameResult result = determineWinner(playerScore, dealerScore);
-
-            System.out.println("\n[WYNIK] Gracz: " + playerScore + " | Krupier: " + dealerScore);
-            System.out.println("[WERDYKT] " + result);
-
-            player.getHand().handReset();
-            dealer.getHand().handReset();
-
-            System.out.println("Press Q to Quit game");
+            this.endGame();
+            System.out.println("Type Q to Quit game or any other char to play again");
         } while (!scanner.next().equalsIgnoreCase("q"));
+    }
+
+    private void endGame() {
+        int playerScore = player.countScore();
+        int dealerScore = dealer.countScore();
+
+        GameResult result = determineWinner(playerScore, dealerScore);
+
+
+        System.out.println("\n|YOUR HAND|");
+        player.getHand().showHand();
+        System.out.println("\n|DEALER HAND|");
+        dealer.getHand().showHand();
+        System.out.println("\n[WYNIK] Gracz: " + playerScore + " | Krupier: " + dealerScore);
+        System.out.println("\n[WERDYKT] " + result);
+        player.getHand().clear();
+        dealer.getHand().clear();
     }
 
     private void gameStart(Deck deck, Dealer dealer, Player player) {
@@ -45,7 +47,6 @@ public class Blackjack {
         System.out.println("Dealer Hand (Second Card Hidden)");
         dealer.getHand().showHand();
         dealer.hit(deck);
-
         player.hit(deck);
         player.hit(deck);
         System.out.println("Your Hand");
