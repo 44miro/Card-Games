@@ -110,7 +110,7 @@ public class Poker {
         System.out.println("\n--- PRE-FLOP ---");
         for (int i = 0; i < 2; i++) {
             for (Player player : activePlayers) {
-                player.getHand().addCards(deck.drawCard());
+                player.getHand().addCard(deck.drawCard());
             }
         }
         System.out.println("Gracze otrzymali po 2 karty do ręki.");
